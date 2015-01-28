@@ -48,7 +48,6 @@ public class ButtonFlat extends Button {
         int[] textSizeAttr = new int[] { android.R.attr.textSize };
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, textSizeAttr );
         float textSize = typedArray.getDimension(0, 24);
-        Log.d("ButtonFlat", "textSize: " + textSize);
         if(text != null){
 			textButton = new TextView(getContext());
 			textButton.setText(text.toUpperCase());
