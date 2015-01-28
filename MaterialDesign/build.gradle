@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 19
@@ -34,7 +34,7 @@ ext.siteUrl = 'https://github.com/navasmdc/MaterialDesignLibrary'
 ext.issueUrl = 'https://github.com/navasmdc/MaterialDesignLibrary/issues'
 ext.gitUrl = 'https://github.com/navasmdc/MaterialDesignLibrary.git'
 
-bintray {
+/*bintray {
     user = hasProperty('BINTRAY_USER') ? BINTRAY_USER : "navasmdc"
     key = hasProperty('BINTRAY_KEY') ? BINTRAY_PASSWORD : ""
 
@@ -50,14 +50,14 @@ bintray {
         labels = []
         publicDownloadNumbers = true
     }
-}
+}*/
 
 dependencies {
     compile 'com.nineoldandroids:library:2.4.+'
     compile 'com.android.support:support-v4:21.+'
 }
 
-install {
+/*install {
     repositories.mavenInstaller {
         pom {
             project {
@@ -85,7 +85,7 @@ install {
             }
         }
     }
-}
+}*/
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
