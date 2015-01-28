@@ -4,11 +4,14 @@ import com.gc.materialdesign.R;
 import com.gc.materialdesign.utils.Utils;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.util.TypedValue;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -41,11 +44,17 @@ public class ButtonFlat extends Button {
 		}else{
 			text = attrs.getAttributeValue(ANDROIDXML,"text");
 		}
-		if(text != null){
+
+        int[] textSizeAttr = new int[] { android.R.attr.textSize };
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, textSizeAttr );
+        float textSize = typedArray.getDimension(0, 24);
+        Log.d("ButtonFlat", "textSize: " + textSize);
+        if(text != null){
 			textButton = new TextView(getContext());
 			textButton.setText(text.toUpperCase());
 			textButton.setTextColor(backgroundColor);
 			textButton.setTypeface(null, Typeface.BOLD);
+            textButton.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 			RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
 			textButton.setLayoutParams(params);
